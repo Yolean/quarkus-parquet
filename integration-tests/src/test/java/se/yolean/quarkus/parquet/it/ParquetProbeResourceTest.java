@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
-public class QuarkusParquetResourceTest {
+class ParquetProbeResourceTest {
 
     @Test
-    public void testHelloEndpoint() {
+    void parquetRoundTripShouldReturnExpectedRows() {
         given()
-                .when().get("/quarkus-parquet")
+                .when().get("/parquet/probe")
                 .then()
                 .statusCode(200)
-                .body(is("Hello quarkus-parquet"));
+                .body(is("Alice:34,Bob:28"));
     }
 }

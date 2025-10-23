@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
+set -x
 
-mvn install -Dquarkus.native.container-build=false -Dmaven.repo.local=.m2/repo
-cd integration-tests
-mvn test -Pnative -Dquarkus.native.container-build=false -Dmaven.repo.local=../.m2/repo
+M2_REPO="$(pwd)/.m2/repo"
+echo "Using local maven repo at $M2_REPO"
+
+mvn -pl deployment -am clean install \
+  -Dmaven.repo.local="$M2_REPO"
+
+mvn -pl integration-tests -am verify \
+  -Dmaven.repo.local="$M2_REPO"
+
+mvn -pl integration-tests -am verify \
+  -Dmaven.repo.local="$M2_REPO" \
+  -Dnative -Dquarkus.native.container-build=false
