@@ -20,6 +20,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.version>3.28.5</quarkus.version>
         <surefire-plugin.version>3.5.4</surefire-plugin.version>
+        <parquet.version>1.16.0</parquet.version>
+        <hadoop-common.version>3.3.6</hadoop-common.version>
     </properties>
 
     <dependencyManagement>
