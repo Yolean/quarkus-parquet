@@ -57,6 +57,7 @@ class ParquetWriterTest {
 
         try (ParquetWriter<Group> writer = new SimpleGroupWriterBuilder(new NioOutputFile(output), schema)
                 .withCompressionCodec(CompressionCodecName.SNAPPY)
+                .withBloomFilterEnabled(false)
                 .build()) {
             Group alice = new SimpleGroup(schema);
             alice.add(nameIndex, "Alice");
