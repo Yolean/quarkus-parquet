@@ -4,5 +4,5 @@ Bring Apache Parquet core features to Quarkus native images with a dedicated ext
 
 ## Development
 
-- `mvn test` to iterate.
-- `mvn verify -Pnative` to exercise JVM and native test suites.
+- `mvn -pl deployment -am verify` to iterate.
+- `mvn verify -Dnative` to run integration tests.
