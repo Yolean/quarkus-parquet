@@ -25,6 +25,17 @@
         <hadoop-common.version>3.3.6</hadoop-common.version>
     </properties>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>gitlocal</id>
+            <url>file://snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>gitlocal</id>
+            <url>file://releases</url>
+        </repository>
+    </distributionManagement>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
